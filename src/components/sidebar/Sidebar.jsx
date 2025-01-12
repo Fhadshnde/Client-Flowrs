@@ -16,7 +16,6 @@ export default function Sidebar() {
           console.error("Expected an array but got", res.data);
         }
       } catch (err) {
-        console.error("Failed to fetch categories:", err);
       }
     };
     getCats();
