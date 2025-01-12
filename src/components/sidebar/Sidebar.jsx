@@ -10,7 +10,11 @@ export default function Sidebar() {
     const getCats = async () => {
       try {
         const res = await axios.get("/categories");
-        setCats(res.data);
+        if (Array.isArray(res.data)) {
+          setCats(res.data);
+        } else {
+          console.error("Expected an array but got", res.data);
+        }
       } catch (err) {
         console.error("Failed to fetch categories:", err);
       }
@@ -34,11 +38,15 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-          {cats.map((c) => (
-            <Link to={`/?cat=${c.name}`} className="link" key={c._id}>
-              <li className="sidebarListItem">{c.name}</li>
-            </Link>
-          ))}
+          {cats.length > 0 ? (
+            cats.map((c) => (
+              <Link to={`/?cat=${c.name}`} className="link" key={c._id}>
+                <li className="sidebarListItem">{c.name}</li>
+              </Link>
+            ))
+          ) : (
+            <li className="sidebarListItem">No categories found</li>
+          )}
         </ul>
       </div>
       <div className="sidebarItem">
@@ -53,3 +61,4 @@ export default function Sidebar() {
     </div>
   );
 }
+o
