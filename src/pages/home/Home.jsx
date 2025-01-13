@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get("/posts" + search);
+        const res = await axios.get("https://flowrs-api-fahad.camdvr.org/api/posts" + search);
         setPosts(res.data);
       } catch (err) {
         console.error("Failed to fetch posts:", err);
