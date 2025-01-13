@@ -32,7 +32,7 @@ export default function Sidebar() {
         />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit.
+          necessitatibus nostrum illum reprehenderit
         </p>
       </div>
       {/* Removed Categories Section */}
