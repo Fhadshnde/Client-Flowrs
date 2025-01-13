@@ -16,6 +16,7 @@ export default function Sidebar() {
           console.error("Expected an array but got", res.data);
         }
       } catch (err) {
+        console.error("Error fetching categories:", err);
       }
     };
     getCats();
@@ -34,20 +35,7 @@ export default function Sidebar() {
           necessitatibus nostrum illum reprehenderit.
         </p>
       </div>
-      <div className="sidebarItem">
-        <span className="sidebarTitle">CATEGORIES</span>
-        <ul className="sidebarList">
-          {cats.length > 0 ? (
-            cats.map((c) => (
-              <Link to={`/?cat=${c.name}`} className="link" key={c._id}>
-                <li className="sidebarListItem">{c.name}</li>
-              </Link>
-            ))
-          ) : (
-            <li className="sidebarListItem">No categories found</li>
-          )}
-        </ul>
-      </div>
+      {/* Removed Categories Section */}
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">
