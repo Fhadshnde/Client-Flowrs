@@ -1,27 +1,6 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 export default function Sidebar() {
-  const [cats, setCats] = useState([]);
-
-  useEffect(() => {
-    const getCats = async () => {
-      try {
-        const res = await axios.get("/categories");
-        if (Array.isArray(res.data)) {
-          setCats(res.data);
-        } else {
-          console.error("Expected an array but got", res.data);
-        }
-      } catch (err) {
-        console.error("Error fetching categories:", err);
-      }
-    };
-    getCats();
-  }, []);
-
   return (
     <div className="sidebar">
       <div className="sidebarItem">
@@ -32,10 +11,9 @@ export default function Sidebar() {
         />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
-          necessitatibus nostrum illum reprehenderit
+          necessitatibus nostrum illum reprehenderit.
         </p>
       </div>
-      {/* Removed Categories Section */}
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">
